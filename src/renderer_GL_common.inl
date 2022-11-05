@@ -4351,10 +4351,10 @@ static void Blit(GPU_Renderer* renderer, GPU_Image* image, GPU_Rect* src_rect, G
     else
     {
         // Scale src_rect tex coords according to actual texture dims
-        x1 = src_rect->x/(float)tex_w;
-        y1 = src_rect->y/(float)tex_h;
-        x2 = (src_rect->x + src_rect->w)/(float)tex_w;
-        y2 = (src_rect->y + src_rect->h)/(float)tex_h;
+        x1 = (src_rect->x + 0.5)/(float)tex_w; 
+ 	y1 = (src_rect->y + 0.5)/(float)tex_h; 
+ 	x2 = (src_rect->x + src_rect->w - 0.5)/(float)tex_w; 
+ 	y2 = (src_rect->y + src_rect->h - 0.5)/(float)tex_h; 
         w = src_rect->w;
         h = src_rect->h;
     }
